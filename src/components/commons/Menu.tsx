@@ -1,9 +1,10 @@
-// 'use client'
+'use client'
 import React, { FC } from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, Avatar} from "@nextui-org/react";
 import { ILink } from '../../interfaces/ILinks';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Cookies from 'js-cookie';
 
 interface Props {
   links: ILink[],
@@ -12,6 +13,7 @@ interface Props {
 //Componentes parametrizado (RECIBE PARÁMETROS)
 export const Menu:FC<Props> = ({links}) => {
   // const pathname =  usePathname();
+  console.log (Cookies.get('email') );
   return (
     <Navbar>
       <NavbarBrand>
@@ -32,17 +34,37 @@ export const Menu:FC<Props> = ({links}) => {
           ))
         }
       </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
+      
+        { ! Cookies.get('email') 
+          ?
+          <NavbarContent justify="end">
+            <NavbarItem className="hidden lg:flex">
+              <Link href="/auth/login">Login</Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Button as={Link} color="primary" href="#" variant="flat">
+                Sign Up
+              </Button>
+            </NavbarItem>
+          </NavbarContent>
+          :
+            <>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                color="secondary"
+                name="Jason Hughes"
+                size="sm"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              />
+              <h2>{Cookies.get('email')}</h2>
+            </>
+            
+      }
+      
     </Navbar>
   );
   
 }
+

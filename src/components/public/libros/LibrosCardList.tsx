@@ -20,8 +20,8 @@ export const LibrosCardList:FC<Props> = ({libros}) => {
                 {restaurant.name}
               </Link> */}
              <Link key={libro.isbn } href ={`/public/libros/${libro.isbn}`}>
-              <LibroCard  key={libro.isbn} libro = {libro }/>
-            </Link>
+                <LibroCard  key={libro.isbn} libro = {libro }/>
+             </Link>
           </article>
         ))
       }

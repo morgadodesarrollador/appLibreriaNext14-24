@@ -1,5 +1,8 @@
 import { ILibro } from '../../interfaces/ILibros';
 
+//USAMOS FETCH PARA REALIZAR PETICIONES DESDE COMPONENTES QUE SE RENDERIZAN EN EL SERVIDOR
+//EN ESTE CASO EL COMPONENTE QUE EJECUTA EL LISTDO. 
+
 const apiBD = 'http://localhost:3001/api';
 const apiLibros = {
 

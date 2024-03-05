@@ -10,7 +10,9 @@ export default function PublicLayout({children}: IChildren){
         { name: 'Generos', href: '/public/generos'},
         { name: 'Editoriales', href: '/public/editoriales' },
         { name: 'Nuestras Tiendas', href: '/public/tiendas' },
-        { name: 'Quienes Somos', href: '/public/qSomos' }
+        { name: 'Quienes Somos', href: '/public/qSomos' },
+        // { name: 'Login', href: '/auth/login' }
+        
       ]
     return (
         <>

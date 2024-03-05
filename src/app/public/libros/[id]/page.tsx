@@ -1,7 +1,7 @@
 
 import apiLibros from '@/model/libros/apiLibros';
 import React from 'react'
-import { LibroDetail } from '@/components/public/libros/Detalle';
+import { LibroDetail } from '@/components/public/libros/LibroDetail';
 
 const LibroPage = async ({params: {id}}: {params: {id:string}}) => {
     
